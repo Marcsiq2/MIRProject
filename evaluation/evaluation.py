@@ -1,34 +1,48 @@
-from sklearn.metrics import precision_recall_fscore_support
+from sklearn import metrics
 import numpy as np
+import csv
+import os
 
-
-#Hay que ver el average que más conviene:
-#average : string, [None (default), ‘binary’, ‘micro’, ‘macro’, ‘samples’, ‘weighted’]
-#
-#   If None, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
-#
-#   'binary':
-#
-#       Only report results for the class specified by pos_label. This is applicable only if targets (y_{true,pred}) are binary.
-#   'micro':
-#
-#       Calculate metrics globally by counting the total true positives, false negatives and false positives.
-#   'macro':
-#
-#       Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.
-#   'weighted':
-#
-#       Calculate metrics for each label, and find their average, weighted by support (the number of true instances for each label). This alters ‘macro’ to account for label imbalance; it can result in an F-score that is not between precision and recall.
-#   'samples':
-#
-#       Calculate metrics for each instance, and find their average (only meaningful for multilabel classification where this differs from accuracy_score).
-
-#Referencia: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_fscore_support.html
-
-
-#Meter en dos arrays los datos de los archivos de klapuri y Benetos y el GT y ejecutar la función
-#y_true -> GT
-#y_pred -> extracted 
 
 
 #precision_recall_fscore_support(y_true, y_pred, average='micro')
+
+
+def fetchFiles(inputDir, descExt=".json"):
+    files = []
+    for path, dname, fnames  in os.walk(inputDir):
+        for fname in fnames:
+            if descExt in fname.lower():
+                files.append((path, fname))
+    return files
+
+def evaluate(file_location, klapuri_location):
+	with open(file_location) as f:
+		reader = np.loadtxt(f, delimiter = "\t")
+	results_GT = []
+	for line in reader:
+		results_GT.append(filter (lambda a: a!= 0.0, line[1:]))
+
+	with open(klapuri_location) as f:
+		reader_kla = csv.reader(f, delimiter = "\t")
+		d = list(reader_kla)
+	results_kla = []
+	for line in d:
+		b = filter (lambda a: a!= 0.0, line[1:])
+		results_kla.append(filter (lambda a: a!= '', b))
+
+	print metrics.accuracy_score(results_GT, results_kla)
+
+
+
+def main():
+	filenames = fetchFiles('Saarland', '.f0s')
+	for path, fname in filenames:
+		print "Evaluating " + fname
+		GT_location = path + "/" + fname
+		klapuri_location = 'Saarland_klapuri/' + fname
+		evaluate(GT_location, klapuri_location)
+		
+
+if __name__ == "__main__":
+    main()
