@@ -11,7 +11,7 @@ fmax = fs/2;
 
 
 % Load .wav file
-[x,fs] = audioread(filename);
+[x,fs,bits] = wavread(filename);
 if (size(x,2) == 2) y = mean(x')'; else y=x; end;
 if (fs ~= 44100) y = resample(y,44100,fs); end;
 fs = 44100;
