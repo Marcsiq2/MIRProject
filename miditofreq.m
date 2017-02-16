@@ -3,7 +3,7 @@ function [  ] = miditofreq(in_path, out_path, filename )
     %   Detailed explanation goes here
     disp(sprintf('Converting: %s',filename));
     addpath('matlab-midi-master\src');
-    m = readmidi(strcat(in_path,filename));
+    m = readmidi(strcat(filename));
     Notes = midiInfo(m,0);
     [PR,t,nn] = piano_roll(Notes);
  
@@ -15,7 +15,7 @@ function [  ] = miditofreq(in_path, out_path, filename )
             f0s(1+(1:sum(PR(:,i)>0)),i)  = midi2freq(find(PR(:,i)>0)+nn(1)-1);
         end
     end
-    f = filename(1:end -3);
-    
+    f = strsplit(filename, '/');
+    f = f{end}(1:end-3);
     dlmwrite(strcat(out_path, f, 'f0s'),f0s','precision','%10.4f', 'delimiter', '\t');
 end

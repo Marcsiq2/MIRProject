@@ -1,8 +1,6 @@
 clear all
 
-%%First step, extract all f0s for Saarland MIDI dataset.
-s = dir('Dataset\Saarland\*.mid');
-a = cellstr(strvcat(s.name));
-for i=1:length(a)
-    miditofreq('Dataset\Saarland\', 'evaluation\Saarland\', a{i});
+A = importdata('Dataset\maps\maps_dataset_midi.txt');
+for i=1:length(A)
+    miditofreq('Dataset\maps\', 'evaluation\Maps\', A{i}(30:end));
 end
