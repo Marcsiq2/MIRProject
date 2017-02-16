@@ -14,7 +14,7 @@ addpath('matlab-midi-master/src');
 % Outputs:
 %  pianoRoll raw piano-roll output (dims: P x T, P: pitch index, T: 20ms step)
 
-filename_audio = '/home/manu/Dropbox/MasterUPF/Asignaturas/2Trim/Music Information Retrieval/MIR Project/evaluation/2Saarland.wav';
+filename_audio = '/home/manu/MTG/SaarlandWav/2Saarland.wav';
 
 iter = 30;
 S = 3;
@@ -32,24 +32,21 @@ t = 0:0.01:(0.01*(length(f0s)-1));
 f0s(1,:) = t;
 
 for i = 1:size(benetosResults,2)
-    if ~(isempty(midi2freq(find(benetosResults(:,i)>0))))
-        f0s(1+(1:sum(benetosResults(:,i)>0)),i)  = midi2freq(find(benetosResults(:,i)>0)-1);
+    if ~(isempty(midi2freq(find(benetosResults(:,i)>0)+nn(1))))
+        f0s(1+(1:sum(benetosResults(:,i)>0)),i)  = midi2freq(find(benetosResults(:,i)>0)+nn(1)-1);
     end
 end
 
 tiempo = 0;
 [M,N] = size(f0s);
-resultadoBenetos = zeros(N*2,M+1);
+resultadoBenetos = zeros(N,M+1);
 j = 1;
-for i = 1:2:N*2
+for i = 1:1:N
     resultadoBenetos(i,1) = tiempo;
-    resultadoBenetos(i+1,1) = tiempo + 0.01;
-    resultadoBenetos(i,2:11) = f0s(:,j);
-    resultadoBenetos(i+1,2:11) = f0s(:,j);
+    resultadoBenetos(i,2:11) = f0s(:,i);
     tiempo = tiempo + 0.02;
-    j = j + 1;
 end
 
-cd ('/home/manu/Dropbox/MasterUPF/Asignaturas/2Trim/Music Information Retrieval/MIR Project/evaluation/evaluation/dataBenetos')
+cd ('/home/manu/Documentos/MIR/MIRProject')
 
 dlmwrite('resultadoBenetos.txt',resultadoBenetos,' ');
