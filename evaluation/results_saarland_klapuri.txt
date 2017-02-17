@@ -1,0 +1,204 @@
+Evaluating Skryabin_Op008No8_003_20090916-SMD.f0s
+Number of correct predicted:	7104
+Number of predicted:		37856
+Number of Ground Truth:		50637
+Precision:			0.1877
+Recall:				0.1403
+Evaluating Bach_BWV888-02_008_20110315-SMD.f0s
+Number of correct predicted:	983
+Number of predicted:		12220
+Number of Ground Truth:		10123
+Precision:			0.0804
+Recall:				0.0971
+Evaluating Chopin_Op066_006_20100611-SMD.f0s
+Number of correct predicted:	7490
+Number of predicted:		55223
+Number of Ground Truth:		57052
+Precision:			0.1356
+Recall:				0.1313
+Evaluating Bach_BWV871-01_002_20090916-SMD.f0s
+Number of correct predicted:	2306
+Number of predicted:		24213
+Number of Ground Truth:		22055
+Precision:			0.0952
+Recall:				0.1046
+Evaluating Liszt_KonzertetuedeNo2LaLeggierezza_003_20090916-SMD.f0s
+Number of correct predicted:	4340
+Number of predicted:		51282
+Number of Ground Truth:		53670
+Precision:			0.0846
+Recall:				0.0809
+Evaluating Beethoven_Op027No1-03_003_20090916-SMD.f0s
+Number of correct predicted:	8310
+Number of predicted:		58040
+Number of Ground Truth:		55490
+Precision:			0.1432
+Recall:				0.1498
+Evaluating Bartok_SZ080-03_002_20110315-SMD.f0s
+Number of correct predicted:	5223
+Number of predicted:		37444
+Number of Ground Truth:		41476
+Precision:			0.1395
+Recall:				0.1259
+Evaluating Beethoven_Op027No1-02_003_20090916-SMD.f0s
+Number of correct predicted:	11954
+Number of predicted:		31903
+Number of Ground Truth:		49735
+Precision:			0.3747
+Recall:				0.2404
+Evaluating Bach_BWV888-01_008_20110315-SMD.f0s
+Number of correct predicted:	4263
+Number of predicted:		22964
+Number of Ground Truth:		38210
+Precision:			0.1856
+Recall:				0.1116
+Evaluating Bach_BWV849-02_001_20090916-SMD.f0s
+Number of correct predicted:	21423
+Number of predicted:		44029
+Number of Ground Truth:		87753
+Precision:			0.4866
+Recall:				0.2441
+Evaluating Bach_BWV871-02_002_20090916-SMD.f0s
+Number of correct predicted:	3393
+Number of predicted:		22174
+Number of Ground Truth:		35619
+Precision:			0.1530
+Recall:				0.0953
+Evaluating Bartok_SZ080-01_002_20110315-SMD.f0s
+Number of correct predicted:	7212
+Number of predicted:		48270
+Number of Ground Truth:		50162
+Precision:			0.1494
+Recall:				0.1438
+Evaluating Chopin_Op028-04_003_20100611-SMD.f0s
+Number of correct predicted:	6774
+Number of predicted:		20144
+Number of Ground Truth:		28807
+Precision:			0.3363
+Recall:				0.2352
+Evaluating Chopin_Op010-03_007_20100611-SMD.f0s
+Number of correct predicted:	17166
+Number of predicted:		52297
+Number of Ground Truth:		96910
+Precision:			0.3282
+Recall:				0.1771
+Evaluating Chopin_Op028-11_003_20100611-SMD.f0s
+Number of correct predicted:	1057
+Number of predicted:		6639
+Number of Ground Truth:		6900
+Precision:			0.1592
+Recall:				0.1532
+Evaluating Chopin_Op028-01_003_20100611-SMD.f0s
+Number of correct predicted:	878
+Number of predicted:		5958
+Number of Ground Truth:		6921
+Precision:			0.1474
+Recall:				0.1269
+Evaluating Haydn_HobXVINo52-03_008_20110315-SMD.f0s
+Number of correct predicted:	5637
+Number of predicted:		56303
+Number of Ground Truth:		51589
+Precision:			0.1001
+Recall:				0.1093
+Evaluating Beethoven_Op031No2-03_002_20090916-SMD.f0s
+Number of correct predicted:	10761
+Number of predicted:		72431
+Number of Ground Truth:		73468
+Precision:			0.1486
+Recall:				0.1465
+Evaluating Chopin_Op028-03_003_20100611-SMD.f0s
+Number of correct predicted:	1621
+Number of predicted:		10085
+Number of Ground Truth:		14143
+Precision:			0.1607
+Recall:				0.1146
+Evaluating Brahms_Op010No1_003_20090916-SMD.f0s
+Number of correct predicted:	10308
+Number of predicted:		56308
+Number of Ground Truth:		88304
+Precision:			0.1831
+Recall:				0.1167
+Evaluating Rachmaninov_Op039No1_002_20090916-SMD.f0s
+Number of correct predicted:	2040
+Number of predicted:		35584
+Number of Ground Truth:		37712
+Precision:			0.0573
+Recall:				0.0541
+Evaluating Mozart_KV398_002_20110315-SMD.f0s
+Number of correct predicted:	12003
+Number of predicted:		72761
+Number of Ground Truth:		91720
+Precision:			0.1650
+Recall:				0.1309
+Evaluating Chopin_Op028-15_006_20100611-SMD.f0s
+Number of correct predicted:	15984
+Number of predicted:		57249
+Number of Ground Truth:		84160
+Precision:			0.2792
+Recall:				0.1899
+Evaluating Brahms_Op010No2_003_20090916-SMD.f0s
+Number of correct predicted:	13194
+Number of predicted:		76422
+Number of Ground Truth:		109589
+Precision:			0.1726
+Recall:				0.1204
+Evaluating Bartok_SZ080-02_002_20110315-SMD.f0s
+Number of correct predicted:	8525
+Number of predicted:		44627
+Number of Ground Truth:		63489
+Precision:			0.1910
+Recall:				0.1343
+Evaluating Chopin_Op029_004_20100611-SMD.f0s
+Number of correct predicted:	5979
+Number of predicted:		41272
+Number of Ground Truth:		46405
+Precision:			0.1449
+Recall:				0.1288
+Evaluating Chopin_Op010-04_007_20100611-SMD.f0s
+Number of correct predicted:	4247
+Number of predicted:		23068
+Number of Ground Truth:		28054
+Precision:			0.1841
+Recall:				0.1514
+Evaluating Bach_BWV875-01_002_20090916-SMD.f0s
+Number of correct predicted:	1719
+Number of predicted:		16963
+Number of Ground Truth:		15299
+Precision:			0.1013
+Recall:				0.1124
+Evaluating Chopin_Op028-17_005_20100611-SMD.f0s
+Number of correct predicted:	4674
+Number of predicted:		31306
+Number of Ground Truth:		37871
+Precision:			0.1493
+Recall:				0.1234
+Evaluating Ravel_JeuxDEau_008_20110315-SMD.f0s
+Number of correct predicted:	4267
+Number of predicted:		55302
+Number of Ground Truth:		53045
+Precision:			0.0772
+Recall:				0.0804
+Evaluating Bach_BWV849-01_001_20090916-SMD.f0s
+Number of correct predicted:	3996
+Number of predicted:		28014
+Number of Ground Truth:		50636
+Precision:			0.1426
+Recall:				0.0789
+Evaluating Bach_BWV875-02_002_20090916-SMD.f0s
+Number of correct predicted:	2528
+Number of predicted:		20783
+Number of Ground Truth:		27543
+Precision:			0.1216
+Recall:				0.0918
+Evaluating Haydn_Hob017No4_003_20090916-SMD.f0s
+Number of correct predicted:	7655
+Number of predicted:		60953
+Number of Ground Truth:		60711
+Precision:			0.1256
+Recall:				0.1261
+******************************************
+Number of correct predicted:	225014
+Number of predicted:		1290087
+Number of Ground Truth:		1625258
+Precision:			0.1744
+Recall:				0.1384
