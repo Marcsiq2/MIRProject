@@ -19,7 +19,7 @@ def fetchFiles(inputDir, descExt=".json"):
 def klapuri_extractor(inp, name):
 	loader = essentia.standard.MonoLoader(filename = inp)
 	audio = loader()
-	multip = MultiPitchKlapuri(frameSize=2048, hopSize=441)
+	multip = MultiPitchKlapuri(frameSize=4096, hopSize=441)
 	f0vec = multip(audio)
 	time = 0
 	f0_names = 'evaluation/Saarland_klapuri/' + name + '.f0s'

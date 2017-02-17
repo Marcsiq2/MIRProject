@@ -1,3 +1,5 @@
+frameSize=2048, hopSize=441
+
 Evaluating MAPS_UCHO_C0-2-3-6-9_I60-68_S1_n6_AkPnBcht.f0s
 Number of correct predicted:	87
 Number of predicted:		200

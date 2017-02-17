@@ -60,14 +60,14 @@ def evaluate(file_location, klapuri_location):
 	return score, prec, rec
 
 def main():
-	filenames = fetchFiles('Maps', '.f0s')
+	filenames = fetchFiles('Saarland', '.f0s')
 	score = 0
 	prec = 0
 	rec = 0
 	for path, fname in filenames:
 		print "Evaluating " + fname
 		GT_location = path + "/" + fname
-		klapuri_location = 'Maps_klapuri/' + fname
+		klapuri_location = 'Saarland_klapuri/' + fname
 		s,p,r= evaluate(GT_location, klapuri_location)
 		score +=s
 		prec +=p
