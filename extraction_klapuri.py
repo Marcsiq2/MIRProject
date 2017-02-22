@@ -16,32 +16,34 @@ def fetchFiles(inputDir, descExt=".json"):
                 files.append((path, fname))
     return files
 
-def klapuri_extractor(inp, name):
+def klapuri_extractor(inp, name, out):
 	loader = essentia.standard.MonoLoader(filename = inp)
 	audio = loader()
-	multip = MultiPitchKlapuri(frameSize=4096, hopSize=441)
+	multip = MultiPitchKlapuri(frameSize=8192, hopSize=441, minFrequency=20, maxFrequency=4500)
 	f0vec = multip(audio)
-	time = 0
-	f0_names = 'evaluation/Saarland_klapuri/' + name + '.f0s'
+	f0_names = out + name + '.f0s'
 	print 'Writing results to: ' + f0_names
+	write_f0s(f0_names, f0vec)
 
-	f = open(f0_names, 'w')
+def write_f0s(filename, f0vec):
+	time = 0
+	f = open(filename, 'w')
 	for f0 in f0vec:
 		f.write(str(time) + "\t")
 		for f0s in f0:
 			f.write(str(f0s) + "\t")
 		f.write("\n")
 		time += 0.01
-
-
+	f.close()
 
 def main():
-	filenames = fetchFiles(os.getcwd() + '/Dataset/Saarland', '.mp3')
+	filenames = fetchFiles(os.getcwd() + '/Dataset/maps', '.wav')
+	out = 'evaluation/Maps_klapuri/'
 	for path, fname in filenames:
 		print "Extracting " + fname
 		file_location = path + "/" + fname
 		file_name, extension = os.path.splitext(fname)
-		klapuri_extractor(file_location, file_name)
+		klapuri_extractor(file_location, file_name, out)
   
 
 if __name__ == "__main__":
