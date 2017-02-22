@@ -1,39 +1,47 @@
 clear all;
-
 addpath('Benetos');
-addpath('matlab-midi-master\src');
+addpath('matlab-midi-master/src');
 
-% Inputs:
-%  filename filename for .wav file
-%  iter     number of iterations (e.g. 30)
-%  S        number of sources (e.g. 3)
-%  sz       sparsity parameter for pitch activation (e.g. 1.0-1.3)
-%  su       sparsity parameter for source contribution (e.g. 1.0-1.3)
-%  sh       sparsity parameter for pitch shifting (e.g. 1.0-1.3)
-%
-% Outputs:
-%  pianoRoll raw piano-roll output (dims: P x T, P: pitch index, T: 20ms step)
-
-filename_audio = strcat(pwd, '\Dataset\Saarland\Bach_BWV849-01_001_20090916-smd.mp3');
-filename_mid = strcat(pwd, '\Dataset\Saarland\Bach_BWV849-01_001_20090916-smd.mid');
-
+A = importdata('Dataset\maps\maps_dataset.txt');
+out_path = ('evaluation/Maps_benetos/');
 iter = 30;
 S = 3;
 sz = 1;
 su = 1;
 sh = 1;
+threshold = 0.01;
 
-[benetosResults] = transcription(filename_audio,iter,S,sz,su,sh);
-threshold = 0.035;
-benetosResults(benetosResults<threshold) = 0;
-imagesc(benetosResults);
-%  Process PIANOROLL to f0s
-% f0s = zeros(max(sum(benetosResults>1,1))+1,size(benetosResults,2));
-% t = 0:0.01:(0.01*(length(f0s)-1));
-% f0s(1,:) = t;
-% 
-% for i = 1:size(benetosResults,2)
-%     if ~(isempty(midi2freq(find(benetosResults(:,i)>0)+nn(1))))
-%         f0s(1+(1:sum(benetosResults(:,i)>0)),i)  = midi2freq(find(benetosResults(:,i)>0)+nn(1)-1);
-%     end
-% end
+parfor d=1:length(A)
+    filename_audio = A{d}(30:end);
+
+
+    [benetosResults] = transcription(filename_audio,iter,S,sz,su,sh);
+    
+    maximo = 0;
+    
+    for i = 1:size(benetosResults,2)
+        cont = 0;
+        aux = benetosResults(benetosResults(:,i)>threshold, i);
+        if (maximo < length(aux))
+            maximo = cont;
+        end
+    end
+
+    f0s = zeros(size(benetosResults,2),maximo+1);
+    f0s(:,1) = 0:0.01:((size(benetosResults,2)-1)*0.01);
+    for i = 1:size(benetosResults,2)
+        aux = benetosResults(:, i);
+        cont = 2;
+        for j = 1:size(benetosResults,1)
+            if (aux(j) > threshold)
+                f0s(i,cont) = 27.5*2.^(((j-1)*10)/120);
+                cont = cont + 1;
+            end
+        end
+    end
+    
+    f = strsplit(filename_audio, '/');
+    f = f{end}(1:end-3);
+    dlmwrite(strcat(out_path, f, 'f0s'),f0s,'precision','%10.4f', 'delimiter', '\t');
+
+end
