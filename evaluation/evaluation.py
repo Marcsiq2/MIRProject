@@ -119,21 +119,21 @@ def evaluate_ben(file_location, benetos_location):
 		d = list(reader_ben)
 	results_ben = []
 	for line in d:
-		b = np.array(filter (lambda a: a!= 0.0, line))
+		b = np.array(filter (lambda a: a!= 0.0, line[1:]))
 		results_ben.append(filter (lambda a: a!= '', b))
 
 
 	score = 0
 	prec = 0
 	rec = 0
-	i = 0
+	i = 1
 	for k, frame in enumerate(results_GT):
-		rec += len(frame)
 		try:
 			if k%2:
 				#score += octave_compare(frame, results_ben[k], 0.03)
 				score += compare(frame, results_ben[i], 0.03)
 				prec += len(results_ben[i])
+				rec += len(frame)
 				i += 1
 		except:
 			pass
@@ -168,8 +168,8 @@ def benetos():
 
 
 def main():
-	klapuri()
-	#benetos()
+	#klapuri()
+	benetos()
 
 if __name__ == "__main__":
     main()
