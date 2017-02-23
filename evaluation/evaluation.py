@@ -86,14 +86,14 @@ def evaluate_kla(file_location, klapuri_location):
 	return score, prec, rec
 
 def klapuri():
-	filenames = fetchFiles('Saarland', '.f0s')
+	filenames = fetchFiles('Maps', '.f0s')
 	score = 0
 	prec = 0
 	rec = 0
 	for path, fname in filenames:
 		print "Evaluating " + fname
 		GT_location = path + "/" + fname
-		klapuri_location = 'Saarland_klapuri/' + fname
+		klapuri_location = 'Maps_klapuri/' + fname
 		s,p,r= evaluate_kla(GT_location, klapuri_location)
 		score +=s
 		prec +=p
@@ -130,8 +130,8 @@ def evaluate_ben(file_location, benetos_location):
 	for k, frame in enumerate(results_GT):
 		try:
 			if k%2:
-				#score += octave_compare(frame, results_ben[k], 0.03)
-				score += compare(frame, results_ben[i], 0.03)
+				score += octave_compare(frame, results_ben[k], 0.03)
+				#score += compare(frame, results_ben[i], 0.03)
 				prec += len(results_ben[i])
 				rec += len(frame)
 				i += 1
