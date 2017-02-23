@@ -9,7 +9,7 @@ S = 3;
 sz = 1;
 su = 1;
 sh = 1;
-threshold = 0.01;
+threshold = 0.005;
 
 parfor d=1:length(A)
     filename_audio = A{d}(30:end);
@@ -29,6 +29,7 @@ parfor d=1:length(A)
 
     f0s = zeros(size(benetosResults,2),maximo+1);
     f0s(:,1) = 0:0.01:((size(benetosResults,2)-1)*0.01);
+    
     for i = 1:size(benetosResults,2)
         aux = benetosResults(:, i);
         cont = 2;
