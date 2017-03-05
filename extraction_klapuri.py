@@ -37,8 +37,8 @@ def write_f0s(filename, f0vec):
 	f.close()
 
 def main():
-	filenames = fetchFiles(os.getcwd() + '/Dataset/maps_noise', '.wav')
-	out = 'evaluation/Maps_noise_klapuri/'
+	filenames = fetchFiles(os.getcwd() + '/Dataset/maps_radioBroadcast', '.wav')
+	out = 'evaluation/Maps_radioBroadcast_klapuri/'
 	for path, fname in filenames:
 		if not fname.startswith('._'):
 			print "Extracting " + fname

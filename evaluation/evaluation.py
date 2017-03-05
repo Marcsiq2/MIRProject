@@ -75,7 +75,7 @@ def evaluate_kla(file_location, klapuri_location):
 		try:
 			prec += len(results_kla[k])
 			rec += len(frame)
-			score += compare(frame, results_kla[k], 0.03)
+			score += octave_compare(frame, results_kla[k], 0.03)
 
 		except:
 			pass
@@ -95,7 +95,7 @@ def klapuri():
 	for path, fname in filenames:
 		print "Evaluating " + fname
 		GT_location = path + "/" + fname
-		klapuri_location = 'Maps_noise_klapuri/' + fname
+		klapuri_location = 'Maps_radioBroadcast_klapuri/' + fname
 		s,p,r= evaluate_kla(GT_location, klapuri_location)
 		score +=s
 		prec +=p
