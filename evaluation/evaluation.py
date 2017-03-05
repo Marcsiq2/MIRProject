@@ -72,10 +72,11 @@ def evaluate_kla(file_location, klapuri_location):
 	prec = 0
 	rec = 0
 	for k, frame in enumerate(results_GT):
-		rec += len(frame)
 		try:
-			score += octave_compare(frame, results_kla[k], 0.03)
 			prec += len(results_kla[k])
+			rec += len(frame)
+			score += compare(frame, results_kla[k], 0.03)
+
 		except:
 			pass
 	print "Number of correct predicted:\t%i" % (score)	
@@ -94,7 +95,7 @@ def klapuri():
 	for path, fname in filenames:
 		print "Evaluating " + fname
 		GT_location = path + "/" + fname
-		klapuri_location = 'Maps_klapuri/' + fname
+		klapuri_location = 'Maps_noise_klapuri/' + fname
 		s,p,r= evaluate_kla(GT_location, klapuri_location)
 		score +=s
 		prec +=p
@@ -138,7 +139,7 @@ def evaluate_ben(file_location, benetos_location):
 			prec += len(results_ben[i])
 			rec += len(frame)
 			#score += octave_compare(frame, results_ben[k], 0.03)
-			score += compare(frame, results_ben[i], 0.03)
+			score += octave_compare(frame, results_ben[i], 0.03)
 			i += 1
 
 
@@ -173,8 +174,8 @@ def benetos():
 
 
 def main():
-	#klapuri()
-	benetos()
+	klapuri()
+	#benetos()
 
 if __name__ == "__main__":
     main()

@@ -37,14 +37,15 @@ def write_f0s(filename, f0vec):
 	f.close()
 
 def main():
-	filenames = fetchFiles(os.getcwd() + '/Dataset/maps', '.wav')
-	out = 'evaluation/Maps_klapuri/'
+	filenames = fetchFiles(os.getcwd() + '/Dataset/maps_noise', '.wav')
+	out = 'evaluation/Maps_noise_klapuri/'
 	for path, fname in filenames:
-		print "Extracting " + fname
-		file_location = path + "/" + fname
-		file_name, extension = os.path.splitext(fname)
-		klapuri_extractor(file_location, file_name, out)
-  
+		if not fname.startswith('._'):
+			print "Extracting " + fname
+			file_location = path + "/" + fname
+			file_name, extension = os.path.splitext(fname)
+			klapuri_extractor(file_location, file_name, out)
+	  
 
 if __name__ == "__main__":
     main()
